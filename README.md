@@ -216,13 +216,25 @@ notebook/tennis_tracking_performance.ipynb
 
 # Attribution
 
-This project builds upon open-source detection and tracking frameworks:
+This project builds upon the open-source tennis analysis framework developed by Muhammad Moin Faisal:
 
-YOLO — Ultralytics  
-ByteTrack — ByteDance Research  
-OpenCV  
+https://github.com/MuhammadMoinFaisal/tennis_analysis
 
-All pipeline integration, homography modeling, and kinematic analysis extensions were implemented in this repository.
+The original repository provides core modules for:
+
+• Player detection and tracking  
+• Court keypoint detection  
+• Tracking utilities and supporting infrastructure  
+
+This repository extends the original implementation with additional engineering and modeling features, including:
+
+• Structured Google Drive integration  
+• Homography-based real-world coordinate transformation  
+• Kinematic analysis (distance, velocity, acceleration)  
+• Robust trajectory filtering and smoothing  
+• Reproducible pipeline architecture  
+
+Original credit belongs to the original author for detection and tracking modules.
 
 ---
 
