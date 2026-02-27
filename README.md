@@ -175,6 +175,40 @@ Open notebook:
 ```bash
 jupyter notebook notebook/tennis_tracking.ipynb
 ```
+---
+
+# Download required data (Google Drive)
+
+Download the project data and models from:
+
+Google Drive folder:
+
+https://drive.google.com/drive/folders/1UtBqFwioyK1UMoWDczqu9E0g-zUhMqc5
+
+Extract and place the folder inside your Google Drive root directory:
+
+Required structure:
+```
+MyDrive/
+└── tennis_analysis/
+    ├── input_videos/
+    ├── models/
+    ├── results/
+```
+Do not rename folders.
+
+---
+
+# Run in Google Colab
+Mount Google Drive:
+```
+from google.colab import drive
+drive.mount('/content/drive')
+```
+Then open and run:
+notebook/tennis_tracking_performance.ipynb
+
+---
 
 # Attribution
 
