@@ -185,7 +185,7 @@ Google Drive folder:
 
 https://drive.google.com/drive/folders/1UtBqFwioyK1UMoWDczqu9E0g-zUhMqc5
 
-Extract and place the folder inside your Google Drive root directory:
+Download or add the folder to your Google Drive, then ensure it is located at:
 
 Required structure:
 ```
@@ -195,6 +195,10 @@ MyDrive/
     ├── models/
     ├── results/
 ```
+The notebook expects the following path:
+
+/content/drive/MyDrive/tennis_analysis/
+
 Do not rename folders.
 
 ---
