@@ -143,7 +143,7 @@ This section presents the main processing stages and corresponding outputs of th
 The system combines deep learning–based detection, multi-object tracking, geometric transformation via homography, and temporal filtering to reconstruct real-world player trajectories.
 
 ---
-#Stage 1 — Player Detection and Multi-Object Tracking
+Stage 1 — Player Detection and Multi-Object Tracking
 
 This stage uses YOLO (Ultralytics) for player detection and ByteTrack for persistent ID assignment across frames.
 
@@ -159,7 +159,7 @@ Key characteristics:
 • Foundation for trajectory extraction
 
 ---
-#Stage 2 — Court Keypoint Detection and Motion Trail Visualization
+Stage 2 — Court Keypoint Detection and Motion Trail Visualization
 
 This stage overlays detected court keypoints and renders player motion using a temporal trail visualization.
 
@@ -179,7 +179,7 @@ Engineering relevance:
 This stage enables verification of geometric consistency prior to homography-based transformation.
 
 ---
-# Stage 3 — Real-World Coordinate Transformation and Trajectory Reconstruction
+Stage 3 — Real-World Coordinate Transformation and Trajectory Reconstruction
 
 Using planar homography, player positions are mapped from image coordinates (pixels) into real-world coordinates (meters).
 
