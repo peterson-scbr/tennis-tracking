@@ -124,7 +124,7 @@ Google Colab
 tennis-player-tracking/
 │
 ├── notebook/
-│   └── tennis_tracking.ipynb
+│   └── tennis_tracking_performance.ipynb
 │
 ├── README.md
 │
