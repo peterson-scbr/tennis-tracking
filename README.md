@@ -159,24 +159,24 @@ Key characteristics:
 • Foundation for trajectory extraction
 
 ---
-Stage 2 — Court Keypoint Detection and Motion Trail Visualization
+Stage 2 — Ground-Plane Position Representation and Motion Trail Visualization
 
-This stage overlays detected court keypoints and renders player motion using a temporal trail visualization.
+This stage represents player position using the bounding box footpoint and renders motion trajectories through a temporal trail visualization.
 
-The trail rendering provides qualitative verification of tracking stability and motion continuity.
+The footpoint corresponds to the player’s ground contact location, ensuring geometric consistency with the court plane and enabling physically valid coordinate transformation.
 
 <p align="center"> <img src="assets/tracking_homography.png" width="720"> </p>
 
 Key characteristics:
 
-• Court geometry reconstruction
-• Spatial reference validation
+• Ground-plane-consistent player position representation
+• Footpoint extraction from bounding box geometry
 • Motion trail rendering with temporal decay
-• Tracking stability visualization
+• Visual trajectory continuity verification
 
 Engineering relevance:
 
-This stage enables verification of geometric consistency prior to homography-based transformation.
+This stage ensures geometrically valid position representation aligned with the court plane, improving homography accuracy and trajectory reliability.
 
 ---
 Stage 3 — Real-World Coordinate Transformation and Trajectory Reconstruction
