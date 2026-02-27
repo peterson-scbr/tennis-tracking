@@ -126,32 +126,120 @@ tennis-player-tracking/
 ├── notebook/
 │   └── tennis_tracking_performance.ipynb
 │
-├── README.md
+├── assets/
+│   ├── tracking_box.png
+│   ├── tracking_homography.png
+│   └── metrics_trajetory.png
 │
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
+---
 
+# Pipeline Visualization and Example Outputs
+
+This section presents the main processing stages and corresponding outputs of the tennis player tracking and kinematic reconstruction pipeline.
+
+The system combines deep learning–based detection, multi-object tracking, geometric transformation via homography, and temporal filtering to reconstruct real-world player trajectories.
+
+---
+#Stage 1 — Player Detection and Multi-Object Tracking
+
+This stage uses YOLO (Ultralytics) for player detection and ByteTrack for persistent ID assignment across frames.
+
+Each player is detected in image space and assigned a stable tracking identity, enabling continuous trajectory reconstruction.
+
+<p align="center"> <img src="assets/tracking_box.png" width="720"> </p>
+
+Key characteristics:
+
+• Robust player detection under broadcast camera conditions
+• Persistent identity tracking across frames
+• Bounding-box–based ground contact proxy (bottom-center heuristic)
+• Foundation for trajectory extraction
+
+---
+#Stage 2 — Court Keypoint Detection and Motion Trail Visualization
+
+This stage overlays detected court keypoints and renders player motion using a temporal trail visualization.
+
+The trail rendering provides qualitative verification of tracking stability and motion continuity.
+
+<p align="center"> <img src="assets/tracking_homography.png" width="720"> </p>
+
+Key characteristics:
+
+• Court geometry reconstruction
+• Spatial reference validation
+• Motion trail rendering with temporal decay
+• Tracking stability visualization
+
+Engineering relevance:
+
+This stage enables verification of geometric consistency prior to homography-based transformation.
+
+---
+# Stage 3 — Real-World Coordinate Transformation and Trajectory Reconstruction
+
+Using planar homography, player positions are mapped from image coordinates (pixels) into real-world coordinates (meters).
+
+After coordinate transformation, the system applies interpolation and temporal filtering to reconstruct physically meaningful trajectories.
+
+<p align="center"> <img src="assets/metrics_trajetory.png" width="720"> </p>
+
+This enables computation of kinematic performance metrics.
+
+Computed metrics include:
+
+• Total distance traveled
+• Mean velocity
+• Maximum velocity
+• Maximum acceleration
+• Maximum deceleration
+
+Engineering components applied:
+
+• Homography transformation
+• Missing data interpolation
+• Butterworth low-pass temporal filtering
+• Noise reduction and trajectory stabilization
 
 ---
 
-# Example Outputs
+#Output Data Products
 
-The system produces:
+For each analyzed video, the system generates:
 
-• Player trajectories  
-• Real-world coordinate reconstruction  
-• Velocity and acceleration metrics  
-• Structured datasets for further analysis  
+Structured outputs:
 
+• Processed visualization video with tracked players
+• Real-world trajectory plot
+• CSV file containing reconstructed coordinates
+• CSV file containing computed kinematic metrics
+
+Directory structure:
+```
+results/
+└── <video_name>/
+    ├── tracked_video.mp4
+    ├── trajectory.png
+    ├── real_coordinates.csv
+    ├── filtered_coordinates.csv
+    └── metrics.csv
+```
 ---
 
-# Use Cases
+#Scientific and Engineering Significance
 
-Sports performance analysis  
-Biomechanics research  
-Athlete monitoring systems  
-Sports analytics research  
-Computer vision research  
+This pipeline converts raw video data into physically interpretable biomechanical and performance metrics.
+
+Applications include:
+
+• Sports performance analysis
+• Athlete monitoring systems
+• Biomechanics research
+• Sports analytics platforms
+• Computer vision research
 
 ---
 
